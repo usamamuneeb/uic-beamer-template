@@ -1,0 +1,344 @@
+\documentclass{beamer}
+\usetheme{uic}
+\usepackage{amsfonts,amsmath,oldgerm,algorithmic,algorithm}
+\usepackage[font=small,labelfont=bf]{caption} % Required for specifying captions to tables and figures
+
+\newcommand{\hrefcol}[2]{\textcolor{uihteal}{\href{#1}{#2}}}
+\newcommand{\testcolor}[1]{\colorbox{#1}{\textcolor{#1}{test}}~\texttt{#1}}
+\usefonttheme[onlymath]{serif}
+
+\title{Get started with the UIC Beamer Theme}
+\titlebackground{images/uic_halls.jpg}
+% an asterisk will split the background:
+% \titlebackground*{images/uic_seo.jpg}
+\subtitle{Using \LaTeX\ to prepare slides}
+
+\author{\href{mailto:umunee2@uic.edu}{Usama Muneeb}}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+% default is no footline, but page numbers are incredibly useful for the audience to ask questions later
+\footlinecolor{uicblue}
+
+
+\begin{frame}{Beamer for UIC presentations}
+If you would like \LaTeX in your presentation, Beamer is a great way to go!
+\begin{itemize}
+\item Beamer has a detailed
+\hrefcol{https://www.ctan.org/tex-archive/macros/latex/contrib/beamer/doc/beameruserguide.pdf}{user
+ manual}, but we will go over the most common features.
+\item The most common of all slide types involve bulleted points, like these.
+\item Regular \LaTeX commands will help you type math, as below.
+\begin{equation*}
+\mathrm{i}\,\hslash\frac{\partial}{\partial t} \Psi(\mathbf{r},t) = -\frac{\hslash^2}{2\,m}\nabla^2\Psi(\mathbf{r},t) + V(\mathbf{r})\Psi(\mathbf{r},t)
+\end{equation*}
+\end{itemize}
+\end{frame}
+
+
+\begin{chapter}[images/uic_halls.jpg]{uicblue}{Slide Layouts}
+\textit{An overview of some different slide types you can have.}
+\end{chapter}
+
+
+\begin{frame}[fragile]{More with bullet points}
+\framesubtitle{Unrolling}
+\begin{itemize}[<+->]
+\item You could also unroll the slides in a sequence.
+\item Just added \verb|[<+->]| option to \verb|\begin{itemize}| in this frame.
+\item \textbf{Note}: If you use verbatim test (i.e. the \verb|\verb| command) in a frame, the \verb|[fragile]| option must be specified on the frame, otherwise the compiler will run into problems.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]{More with bullet points}
+\framesubtitle{Alerts and repeats}
+Sections 12.1 through 12.3 of the \hrefcol{https://www.ctan.org/tex-archive/macros/latex/contrib/beamer/doc/beameruserguide.pdf}{Beamer user
+manual} demonstrate many more features, like alerts and repeats.
+\begin{itemize}
+\item The \verb|\alert{}| feature can be particularly useful.
+\item Like \alert<2>{this}.
+\item You may as well choose the highlighting to stick.
+    \begin{itemize}
+    \item Previous one did not, but \alert<3->{this one} will.
+    \end{itemize}
+\item Another common slide type involves columns and/or images.
+    \begin{itemize}
+    \item We show them in the \alert<4>{next slides}.
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]{Images and columns}
+\begin{columns}
+\begin{column}{0.7\textwidth}
+Adding images works like in normal \LaTeX:
+\begin{block}{Code for Adding Images}
+\begin{verbatim}
+\usepackage{graphicx}
+% ...
+\includegraphics[width=\textwidth]
+{images/uic_quad.pdf}
+\end{verbatim}
+\end{block}
+This slide layout was achieved using the \verb|columns| feature. The number and widths of the columns is totally user preference. Another columns example follows on the next slide.
+\end{column}
+\begin{column}{0.3\textwidth}
+\includegraphics[width=\textwidth]
+{images/uic_quad.pdf}
+\end{column}
+\end{columns}
+\end{frame}
+
+
+\begin{frame}{Another images/columns example}
+\begin{columns}
+\begin{column}{0.35\textwidth}
+\includegraphics[width=\textwidth]{plots/min_fuel.png}
+\captionof{figure}{Minimum fuel trajectory}
+\end{column}
+\begin{column}{0.3\textwidth}
+\textbf{Left:} Solving for optimal fuel consumption \textbf{Right:} Solving for optimal time taken
+\end{column}
+\begin{column}{0.35\textwidth}
+\includegraphics[width=\textwidth]{plots/min_time.png}
+\captionof{figure}{Minimum time trajectory}
+\end{column}
+\end{columns}
+\end{frame}
+
+
+\begin{frame}[fragile]{Blocks}
+Blocks are another great way to partition your slide. They can be combined with columns, as shown here.
+\begin{columns}
+\begin{column}{0.3\textwidth}
+\begin{block}{Standard Blocks}
+For the light theme, their color matches the footline. We will discuss light and dark themes soon.
+\begin{verbatim}
+\begin{block}{title}
+content...
+\end{block}
+\end{verbatim}
+\end{block}
+\end{column}
+\begin{column}{0.7\textwidth}
+\begin{colorblock}[black]{uihteal}{Colour Blocks}
+Similar to the ones on the left, but you pick the colour. Text will be white by 
+default, but you may set it with an optional argument.
+\small
+\begin{verbatim}
+\begin{colorblock}[black]{skyblue}{title}
+content...
+\end{colorblock}
+\end{verbatim}
+\end{colorblock}
+\end{column}
+\end{columns}
+\end{frame}
+
+
+\begin{sidepic}{images/uic_quad.pdf}{Side-Picture Slides}
+Just another another layout you may want to use.
+\begin{itemize}
+\item These type of slides are created using \texttt{$\backslash$begin\{sidepic\}\{<image>\}\{<title>\}}
+\item Otherwise, \texttt{sidepic} works just like \texttt{frame}
+\end{itemize}
+\end{sidepic}
+
+
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+\newcommand*\CALL[2]{\textsc{#1}(#2)}
+% \newcommand*\ANNOTATE[1]{\hfill\{#1\}}%
+% \newcommand*\ANNOTATE[1]{\hskip3em$\rightarrow$ #1}
+\newcommand*\ANNOTATE[1]{\hfill\(\triangleright\) #1}%
+
+\footlinecolor{}
+
+\begin{frame}[fragile]{Pseudocode Example}
+\begin{algorithm}[H]
+\fontsize{8}{1}\selectfont
+\caption{Running EM using the joint PMFs, $P$, $Q$, $\hat P$}
+\begin{algorithmic}
+\REQUIRE A belief network $\mathcal{G}$ and dataset $ \mathcal{D}$
+\ENSURE $\hat P$ (ML estimate of network parameter matrix)
+\STATE $\hat P \gets$ \CALL{RandomPMF}{}
+\STATE $\text{LogLikelihood} \gets \text{empty list}$
+\STATE $t \gets 0$
+\REPEAT
+    \STATE $\text{CurrentLogLikelihood} \gets 0$
+    \STATE $Q \gets 0$
+    \FOR{$d \in \mathcal{D}$}
+        \STATE $\hat P(Z_d \mid y_d) \gets \hat P(Z, Y=y_d)$
+        \STATE $\text{CurrentLogLikelihood} \gets \text{CurrentLogLikelihood} + \CALL{Sum}{\hat P(Z_d \mid y_d)}$
+        \STATE $Q \gets Q + \CALL{TensorProduct}{\hat P(Z_d \mid y_d), \CALL{OneHot}{y_d}}$ \ANNOTATE{E-step}
+    \ENDFOR
+    \STATE $\text{LogLikelihood}[t] = \text{CurrentLogLikelihood}$
+    \STATE $\hat P \gets \CALL{Normalize}{Q}$ \ANNOTATE{M-step}
+    \STATE $t \gets t + 1$
+\UNTIL{convergence}
+\RETURN $\hat P$
+\end{algorithmic}
+\end{algorithm}
+\end{frame}
+
+
+\footlinecolor{uicblue}
+
+\begin{chapter}[images/uic_seo.jpg]{uicblue}{Personalization}
+\textit{Themes, fonts and colors}
+\end{chapter}
+
+
+\begin{frame}[fragile]{Let's talk themes}
+Three fundamental features greatly affect the look and feel of your slides. Two of them can be controlled with the \verb|\themecolor| command.
+\begin{itemize}
+\item The background color.
+\begin{itemize}
+    \item The default is \verb|light| theme, which has a light background, which we are currently using.
+\end{itemize}
+\item The foreground color.
+\begin{itemize}
+    \item The \verb|light| theme has a \verb|dark| foreground (i.e. text color) and vice versa.
+\end{itemize}
+\item The third, the footer color can be set using \verb|\footlinecolor| command.
+\begin{itemize}
+    \item We are currently using \testcolor{uicblue} color for our footer.
+    \item The default is no footline, but I believe page numbers are incredibly helpful for your audience to ask questions later.
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\themecolor{dark}
+\usebeamercolor[fg]{normal text}
+\footlinecolor{uicred}
+\begin{frame}[fragile]{Let's talk themes}
+\begin{itemize}
+\item I just called \verb|\themecolor{dark}| before \verb|\begin{frame}| for this slide.
+\begin{itemize}
+    \item Ideally you should set the theme globally in the preamble (i.e. before \verb|\begin{document}|). Default is light.
+    \item If you switch the theme from light to dark or vice versa in the middle of the presentation (like we just did), you \textbf{may} have to follow up with \verb|\usebeamercolor[fg]{normal text}| as well, as we did for this slide, otherwise the foreground color might not be automatically updated.
+\end{itemize}
+\item You can also change the footer color with \verb|\footlinecolor{color}|, as we did for this slide.
+\item All the changes we talked about here happen for the current \textbf{as well as subsequent} frames.
+\begin{itemize}
+    \item I will manually revert all the changes for the next slide.
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\themecolor{light}
+\usebeamercolor[fg]{normal text}
+\footlinecolor{uicblue}
+
+
+\begin{frame}
+\frametitle{Fonts}
+\begin{itemize}
+\item Fonts play a huge role in the look and feel of your presentation
+  \begin{itemize}
+  \item Their main purpose however, is clarity!
+  \end{itemize}
+\item \textrm{Serif} vs \textsf{Sans-Serif} fonts
+  \begin{itemize}
+  \item \hrefcol{https://www.adobe.com/creativecloud/design/discover/serif-vs-sans-serif.html}{This} is a good read on when to use which.
+  \end{itemize}
+\item UIC signature font is Theinhardt
+  \begin{itemize}
+  \item I have however not changed the default font in this template.
+  \item A licensed copy of Theinhardt can be obtained by UIC students and faculty \hrefcol{https://marketing.uic.edu/marketing-toolbox/uic-fonts/}{here}.
+  \end{itemize}
+\item Google Fonts is a great resource for fonts available under permissive licenses.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]{Text color}
+\begin{itemize}
+\item Font color can be set with the \verb|\textcolor{<color name>}{text}| command.
+\item The colors are defined in the \texttt{uiccolor} package, in accordance with the \hrefcol{https://marketing.uic.edu/marketing-toolbox/university-style-guide/visual-elements/}{UIC Visual Elements guide}:
+  \begin{itemize}
+  \item UIC's primary colors are Navy Pier Blue (\testcolor{uicblue}) and Fire Engine Red (\testcolor{uicred}).
+  \item UIC's secondary colors are Chicago Blue (\testcolor{chicagoblue}), UI Health Teal (\testcolor{uihteal}) and Champions Gold (\testcolor{championsgold}).
+  \item UIC's neutral colors are Expo White (\testcolor{expowhite}) and Steel Gray (\testcolor{steelgray} or \testcolor{steelgrey}).
+  \end{itemize}
+\item A \emph{simpler alternative} to font colors is often just \verb|\emph{}|.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]{Chapter slides}
+\begin{itemize}
+\item Allow you to partition your presentation into multiple chapters
+\item Also \verb|frame|s, but with a few more options
+\item Created with \verb|\begin{chapter}[<image>]{<color>}{<title>}|
+  \begin{itemize}
+  \item Image is optional, color and title are mandatory.
+  \end{itemize}
+\item Multiple background images have been provided in this template which may be used for chapter slides:
+  \begin{itemize}
+  \item Some campus photos that I have taken over the years and;
+  \item some departmental logos.
+  \item Let's look at a few examples!
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\begin{chapter}[images/uic_halls.jpg]{uicblue}{Title goes here}
+\textit{Subtitle goes here}
+\end{chapter}
+
+\themecolor{lightnologo}
+% these backgrounds already have the UIC circular logo, so we temporarily change the theme to lightnologo
+\begin{chapter}[images/dept_ece.png]{uicblue}{Title goes here}
+\textit{Subtitle goes here}
+\end{chapter}
+
+\begin{chapter}[images/dept_cs.png]{uicblue}{Title goes here}
+\textit{Subtitle goes here}
+\end{chapter}
+
+\begin{chapter}[images/dept_mscs.png]{steelgray}{Title goes here}
+\textit{Subtitle goes here}
+\end{chapter}
+\themecolor{light}
+
+\begin{frame}[fragile]{Other departments}
+\begin{itemize}
+\item Download your logo from \hrefcol{https://marketing.uic.edu/marketing-toolbox/university-style-guide/university-marks-logos/}{here}.
+    \begin{itemize}
+    \item What you need is ``departmental lockup in SVG format and inverted RGB color".
+    \end{itemize}
+\item Manually overlay it on a static color background using an SVG editor.
+    \begin{itemize}
+    \item You can look at \verb|uiccolor.sty| file for the numerical value of the UIC background colors.
+    \end{itemize}
+\item Make sure the overlay is exported in at least 1600 x 1200 resolution in PNG format (you will need to upscale your SVG overlay).
+    \begin{itemize}
+    \item LaTeX cannot natively handle SVG images (and PNG images, if not sufficiently large, will pixelate in the presentation).
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]{Good luck with your presentation!}
+\begin{itemize}
+\item This template is hosted on GitHub
+    \begin{itemize}
+    \item  \verb|https://github.com/usamamuneeb/uic-beamer-template|
+    \end{itemize}
+\item  I would appreciate contributions of all sorts (pull requests, identifying issues, etc).
+\item  If you have any suggestions,
+\hrefcol{mailto:umunee2@uic.edu}{send them to me!}
+\end{itemize}
+\end{frame}
+
+
+\backmatter
+\end{document}
