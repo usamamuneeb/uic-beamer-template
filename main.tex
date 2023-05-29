@@ -5,7 +5,10 @@
 
 \newcommand{\hrefcol}[2]{\textcolor{uihteal}{\href{#1}{#2}}}
 \newcommand{\testcolor}[1]{\colorbox{#1}{\textcolor{#1}{test}}~\texttt{#1}}
+
+% Please see Section 18.1 of Beamer User Guide for all the options \usefonttheme provides
 \usefonttheme[onlymath]{serif}
+% \usefonttheme{serif} % use this if you would like Serif font throughout (and not just for math)
 
 \title{Get started with the UIC Beamer Theme}
 \titlebackground{images/uic_halls.jpg}
@@ -125,12 +128,12 @@ content...
 \end{block}
 \end{column}
 \begin{column}{0.7\textwidth}
-\begin{colorblock}[black]{uihteal}{Colour Blocks}
-Similar to the ones on the left, but you pick the colour. Text will be white by 
+\begin{colorblock}[black]{uihteal}{Color Blocks}
+Similar to the ones on the left, but you pick the color. Text will be white by 
 default, but you may set it with an optional argument.
 \small
 \begin{verbatim}
-\begin{colorblock}[black]{skyblue}{title}
+\begin{colorblock}[black]{uihteal}{title}
 content...
 \end{colorblock}
 \end{verbatim}
@@ -237,8 +240,7 @@ Three fundamental features greatly affect the look and feel of your slides. Two 
 \footlinecolor{uicblue}
 
 
-\begin{frame}
-\frametitle{Fonts}
+\begin{frame}[fragile]{Fonts}
 \begin{itemize}
 \item Fonts play a huge role in the look and feel of your presentation
   \begin{itemize}
@@ -247,13 +249,66 @@ Three fundamental features greatly affect the look and feel of your slides. Two 
 \item \textrm{Serif} vs \textsf{Sans-Serif} fonts
   \begin{itemize}
   \item \hrefcol{https://www.adobe.com/creativecloud/design/discover/serif-vs-sans-serif.html}{This} is a good read on when to use which.
+  \item \textbf{Open Sans} and \textbf{IBM Plex Serif} have been provided with this template.
+  \item To conveniently switch from Open Sans to IBM Plex Serif, please use \verb|\usefonttheme{serif}| in the preamble.
+    \begin{itemize}
+    \item IBM Plex Serif is not available on pdfLaTeX, so Caladea will be used instead.
+    \end{itemize}
   \end{itemize}
-\item UIC signature font is Theinhardt
-  \begin{itemize}
-  \item I have however not changed the default font in this template.
-  \item A licensed copy of Theinhardt can be obtained by UIC students and faculty \hrefcol{https://marketing.uic.edu/marketing-toolbox/uic-fonts/}{here}.
-  \end{itemize}
-\item Google Fonts is a great resource for fonts available under permissive licenses.
+\item The fonts provided in the \verb|fonts| folder (or your own fonts) can only be used with XeLaTeX.
+    \begin{itemize}
+    \item The Overleaf version of this template uses XeLaTeX by default.
+    \item Next few slides talk about font formats and how they work with different compilers.
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]{Font formats over time}
+Here are the \textbf{old} formats (still used in the LaTeX ecosystem):
+
+\begin{itemize}
+\item \emph{PostScript Type 1} format developed by Adobe in 1980s
+\begin{itemize}
+    \item Support officially ended by Adobe in January 2023
+\end{itemize}
+\item \emph{TrueType format} (\verb|.ttf|) developed by Apple, also in 1980s, licensed to Microsoft
+\end{itemize}
+
+The \textbf{new} font formats are \emph{OpenType}, developed jointly by Microsoft and Adobe in the 1990s as an extension of Apple's TrueType font format. \emph{OpenType} fonts are either
+
+\begin{itemize}
+\item \emph{PostScript flavor OpenType} (\verb|.otf|) that supercedes Adobe's PostScript Type 1
+\item \emph{TrueType flavor OpenType} (also \verb|.ttf|!) that supercedes Apple's TrueType
+    \begin{itemize}
+    \item Distinguishing them from the old TrueType format is therefore non trivial.
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]{Font formats compatibility}
+The new \emph{OpenType} fonts have several new features over the old formats. They are however, supported natively only by XeLaTeX and LuaLaTeX compilers. The most popular pdfLaTeX compiler has limited support for them:
+\begin{itemize}
+\item \emph{OpenType} fonts are not pdfLaTeX-ready by default.
+\item They require the production of TeX font metrics and other ancillary files in order to be used with LaTeX.
+\item The production of these files is not easy for the average user.
+\end{itemize}
+Consequently, if using pdfLaTeX, the most convenient option is to restrict yourself to the fonts packages available at the \hrefcol{https://tug.org/FontCatalogue/}{LaTeX Font Catalogue}, which are already pdfLaTeX-ready.
+\end{frame}
+
+
+\begin{frame}[fragile]{Font formats compatibility}
+If you want to use fonts beyond those in the \hrefcol{https://tug.org/FontCatalogue/}{LaTeX Font Catalogue} (for example, fonts from Google Fonts), the recommended approach is to use XeLaTeX.
+\begin{itemize}
+\item XeLaTeX is set as the default compiler on the Overleaf version of this template.
+\item The fonts included in the \verb|fonts| folder are \emph{TrueType flavor OpenType} fonts.
+\item You can still use pdfLaTeX, except that the included fonts will not be applied.
+\end{itemize}
+UIC signature font is Theinhardt, also available as \emph{OpenType}.
+\begin{itemize}
+\item Due to licensing issues, I cannot distribute Theinhardt with this template.
+\item A licensed copy of Theinhardt can be obtained by UIC students and faculty \hrefcol{https://marketing.uic.edu/marketing-toolbox/uic-fonts/}{here}.
 \end{itemize}
 \end{frame}
 

@@ -1,0 +1,79 @@
+% This file is a component of the UIC Beamer Template
+% by Usama Muneeb <umunee2@uic.edu>
+% 
+% This program is free software: you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation, either version 3 of the License, or
+% (at your option) any later version.
+%
+% This program is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% GNU General Public License for more details.
+%
+% You should have received a copy of the GNU General Public License
+% along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+\ProvidesPackage{uicfont}[2023/05/28]
+\usepackage{iftex}
+
+
+\ifpdftex
+% pdfLaTeX does not support directly embedding OpenType fonts
+% We will therefore use fonts from the LaTeX font catalogue
+% https://tug.org/FontCatalogue
+% These fonts are pdfLaTeX ready
+% We use OpenSans as Sans Serif and Caladea as the Serif font
+\usepackage[defaultsans,scale=0.9]{opensans} % replaces default sans-serif font
+\usepackage{caladea} % replaces default serif font
+\usepackage[T1]{fontenc}
+\fi
+
+
+\ifxetex
+% XeLaTeX directly supports OpenType fonts
+% Use XeLaTeX if you would like more options with fonts
+% We use OpenSans as Sans Serif and IBM Plex Serif as the Serif font
+% We also augment them with Playfair Display SC for the Small Caps Style.
+\usepackage{fontspec}
+% The commands \setsansfont, \setmainfont and \setmonofont are provided by the fontspec package.
+% These commands provide a very fine grained control over fonts.
+% e.g. OpenSans does not provide SmallCapsFont, so we will augment it with Playfair Display SC for the Small Caps Style.
+% Small Caps style is used in the pseudocode.
+
+% By default Beamer uses Sans-Serif mode and the font specified in \setsansfont is the font that will be applied in most places.
+\setsansfont{OpenSans}[
+    Path=./fonts/,
+    Scale=0.9,
+    Extension = .ttf,
+    UprightFont=Open_Sans/*-Regular,
+    BoldFont=Open_Sans/*-Bold,
+    ItalicFont=Open_Sans/*-Italic,
+    BoldItalicFont=Open_Sans/*-BoldItalic,
+    SmallCapsFont=Playfair_Display_SC/PlayfairDisplaySC-Regular % OpenSans does not have an SC variant
+]
+% Other less common font styles are SlantedFont, BoldSlantedFont, SwashFont and BoldSwashFont.
+% If your font also provides additional faces (e.g. ExtraLight, etc), fontspec also supports them.
+% Please see the fontspec documentation Section 4.3 (Choosing additional NFSS font faces) for details.
+
+% This is used if we use \usefonttheme{serif} in main.tex
+% With the default \usefonttheme[onlymath]{serif}, this will control the font used for math
+\setmainfont{IBMPlexSerif}[
+    Path=./fonts/,
+    Scale=0.9,
+    Extension = .ttf,
+    UprightFont=IBM_Plex_Serif/*-Regular,
+    BoldFont=IBM_Plex_Serif/*-Bold,
+    ItalicFont=IBM_Plex_Serif/*-Italic,
+    BoldItalicFont=IBM_Plex_Serif/*-BoldItalic,
+    SmallCapsFont=Playfair_Display_SC/PlayfairDisplaySC-Regular % IBMPlexSerif does not have an SC variant
+]
+
+% This controls verbatim text (i.e. code)
+\setmonofont{NotoSansMono}[
+    Path=./fonts/Noto_Sans_Mono/,
+    Scale=0.9,
+    Extension = .ttf,
+    UprightFont=*-Regular
+]
+\fi
