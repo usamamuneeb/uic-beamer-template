@@ -133,7 +133,13 @@
   \vspace*{-3.5ex}
   \begin{beamercolorbox}[leftskip=2cm]{frametitle}%
     \usebeamerfont{frametitle}\insertframetitle\\
+    % Setting an invisible placeholder subtitle will fix the title in a constant position
+    % This is due to the way the default template is defined in `beamerouterthemedefault.sty'
+    \ifx\insertframesubtitle\empty
+    \usebeamerfont{framesubtitle}\usebeamercolor[bg]{normal text}Placeholder
+    \else
     \usebeamerfont{framesubtitle}\insertframesubtitle
+    \fi
   \end{beamercolorbox}
 }
 
@@ -231,7 +237,13 @@
     \vspace*{-3.5ex}
     \begin{beamercolorbox}[leftskip=2cm,rightskip=0.4\textwidth]{frametitle}%
       \usebeamerfont{frametitle}\insertframetitle\\
+      % Setting an invisible placeholder subtitle will fix the title in a constant position
+      % This is due to the way the default template is defined in `beamerouterthemedefault.sty'
+      \ifx\insertframesubtitle\empty
+      \usebeamerfont{framesubtitle}\usebeamercolor[bg]{normal text}Placeholder
+      \else
       \usebeamerfont{framesubtitle}\insertframesubtitle
+      \fi
     \end{beamercolorbox}
   }
   \begin{frame}{#2}
