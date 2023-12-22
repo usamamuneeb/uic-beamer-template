@@ -75,6 +75,7 @@
 		\renewcommand{\@UIClogo}{whitelogo}
 		\setbeamercolor{block title}{fg=uicblue,bg=steelgray}
 		\setbeamercolor{block body}{fg=uicblue,bg=steelgray}
+		\usebeamercolor[fg]{normal text}
 	}{}
 	\ifstrequal{#1}{light}{%
 		\setbeamercolor{normal text}{fg=uicblue,bg=white}
@@ -82,6 +83,7 @@
 		\renewcommand{\@UIClogo}{redlogo}
 		\setbeamercolor{block title}{fg=white,bg=uicblue}
 		\setbeamercolor{block body}{fg=white,bg=uicblue}
+		\usebeamercolor[fg]{normal text}
 	}{}
 	\ifstrequal{#1}{lightnologo}{%
 		\setbeamercolor{normal text}{fg=uicblue,bg=white}
@@ -89,6 +91,7 @@
 		\renewcommand{\@UIClogo}{nologo}
 		\setbeamercolor{block title}{fg=white,bg=uicblue}
 		\setbeamercolor{block body}{fg=white,bg=uicblue}
+		\usebeamercolor[fg]{normal text}
 	}{}
 }
 \themecolor{light}
@@ -225,6 +228,7 @@
   \endminipage
   \end{frame}
   \endgroup
+  \usebeamercolor[fg]{normal text}
 }
 
 \newenvironment{sidepic}[2]{% Args: image, frame title

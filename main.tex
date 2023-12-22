@@ -219,14 +219,12 @@ Three fundamental features greatly affect the look and feel of your slides. Two 
 
 
 \themecolor{dark}
-\usebeamercolor[fg]{normal text}
 \footlinecolor{uicred}
 \begin{frame}[fragile]{Let's talk themes}
 \begin{itemize}
 \item I just called \verb|\themecolor{dark}| before \verb|\begin{frame}| for this slide.
 \begin{itemize}
     \item Ideally you should set the theme globally in the preamble (i.e. before \verb|\begin{document}|). Default is light.
-    \item If you switch the theme from light to dark or vice versa in the middle of the presentation (like we just did), you \textbf{may} have to follow up with \verb|\usebeamercolor[fg]{normal text}| as well, as we did for this slide, otherwise the foreground color might not be automatically updated.
 \end{itemize}
 \item You can also change the footer color with \verb|\footlinecolor{color}|, as we did for this slide.
 \item All the changes we talked about here happen for the current \textbf{as well as subsequent} frames.
@@ -238,7 +236,6 @@ Three fundamental features greatly affect the look and feel of your slides. Two 
 
 
 \themecolor{light}
-\usebeamercolor[fg]{normal text}
 \footlinecolor{uicblue}
 
 
@@ -283,7 +280,7 @@ The \textbf{new} font formats are \emph{OpenType}, developed jointly by Microsof
 \item \emph{PostScript flavor OpenType} (\verb|.otf|) that supercedes Adobe's PostScript Type 1
 \item \emph{TrueType flavor OpenType} (also \verb|.ttf|!) that supercedes Apple's TrueType
     \begin{itemize}
-    \item Distinguishing them from the old TrueType format is therefore non trivial.
+    \item Distinguishing them from the old TrueType format is non trivial, since they have the same file extension.
     \end{itemize}
 \end{itemize}
 \end{frame}
