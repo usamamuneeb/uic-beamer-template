@@ -374,17 +374,14 @@ UIC signature font is Theinhardt, also available as \emph{OpenType}.
 
 \begin{frame}[fragile]{Other departments}
 \begin{itemize}
+\item You can use the generic \verb|uic_lockup.png| background, or
 \item Download your logo from \hrefcol{https://marketing.uic.edu/marketing-toolbox/university-style-guide/university-marks-logos/}{here}.
     \begin{itemize}
     \item What you need is ``departmental lockup in SVG format and inverted RGB color".
     \end{itemize}
-\item Manually overlay it on a static color background using an SVG editor.
+\item Overlay it on a static background (LaTeX cannot natively handle SVG images)
     \begin{itemize}
-    \item You can look at \verb|uiccolor.sty| file for the numerical value of the UIC background colors.
-    \end{itemize}
-\item Make sure the overlay is exported in at least 1600 x 1200 resolution in PNG format (you will need to upscale your SVG overlay).
-    \begin{itemize}
-    \item LaTeX cannot natively handle SVG images (and PNG images, if not sufficiently large, will pixelate in the presentation).
+    \item Use the \verb|overlay_svg.py| Python script provided in the GitHub repository of this template (link on next slide)
     \end{itemize}
 \end{itemize}
 \end{frame}
