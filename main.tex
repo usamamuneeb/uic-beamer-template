@@ -11,9 +11,21 @@
 % \usefonttheme{serif} % use this if you would like Serif font throughout (and not just for math)
 
 \title{Get started with the UIC Beamer Theme}
-\titlebackground{images/uic_halls.jpg}
-% an asterisk will split the background:
-% \titlebackground*{images/uic_seo.jpg}
+
+
+\titlebackground*{images/uic_lockup.png}
+
+% NOTE 1: The asterisk splits the background image. This option is good
+% for logo-based backgrounds. If you use an image based background
+% it's recommended to not split it:
+
+% \titlebackground{images/uic_seo.jpg}
+
+% NOTE 2: If you use a title background that does not have a logo, you might
+% want to enable logo in the top left.
+% To do that, simply comment out this line
+\themecolor{lightnologo}
+
 \subtitle{Using \LaTeX\ to prepare slides}
 % This can be adjusted accordingly for longer titles
 \newcommand{\titleboxwidth}{0.45\textwidth}
@@ -23,6 +35,7 @@
 
 \begin{document}
 \maketitle
+\themecolor{light} % reverts to a logo based theme (if you disabled it for title page)
 
 % default is no footline, but page numbers are incredibly useful for the audience to ask questions later
 \footlinecolor{uicblue}
