@@ -145,6 +145,12 @@ content...
 \end{frame}
 
 
+\begin{frame}[fragile]{Blocks for theorems}
+Beamer also uses blocks by default to wrap theorems.
+\begin{theorem} This is a theorem. \end{theorem}
+\end{frame}
+
+
 \begin{sidepic}{images/uic_quad.pdf}{Side-Picture Slides}
 Just another another layout you may want to use.
 \begin{itemize}
@@ -166,26 +172,29 @@ Just another another layout you may want to use.
 \begin{frame}[fragile]{Pseudocode Example}
 \begin{algorithm}[H]
 \fontsize{8}{1}\selectfont
-\caption{Running EM using the joint PMFs, $P$, $Q$, $\hat P$}
+\caption{Bellman-Kalaba (adapted from \hrefcol{https://www.ctan.org/tex-archive/macros/latex/contrib/algorithmicx/algorithmicx.pdf}{algorithmicx documentation}).}
 \begin{algorithmic}
-\REQUIRE A belief network $\mathcal{G}$ and dataset $ \mathcal{D}$
-\ENSURE $\hat P$ (ML estimate of network parameter matrix)
-\STATE $\hat P \gets$ \CALL{RandomPMF}{}
-\STATE $\text{LogLikelihood} \gets \text{empty list}$
-\STATE $t \gets 0$
+\REQUIRE $G$, $u$, $l$, $p$
+% \ENSURE optional output
+\FORALL {$v \in V(G)$}
+    \STATE $l(v) \leftarrow \infty$
+\ENDFOR
+\STATE $l(u) \leftarrow 0$
 \REPEAT
-    \STATE $\text{CurrentLogLikelihood} \gets 0$
-    \STATE $Q \gets 0$
-    \FOR{$d \in \mathcal{D}$}
-        \STATE $\hat P(Z_d \mid y_d) \gets \hat P(Z, Y=y_d)$
-        \STATE $\text{CurrentLogLikelihood} \gets \text{CurrentLogLikelihood} + \CALL{Sum}{\hat P(Z_d \mid y_d)}$
-        \STATE $Q \gets Q + \CALL{TensorProduct}{\hat P(Z_d \mid y_d), \CALL{OneHot}{y_d}}$ \ANNOTATE{E-step}
+    \FOR {$i \leftarrow 1, n$}
+        \STATE $min \leftarrow l(v_i)$
+        \FOR {$j \leftarrow 1, n$}
+            \IF {$min > \CALL{Edge}{v_i, v_j} + l(v_j)$}
+                \STATE $min \leftarrow \CALL{Edge}{v_i, v_j} + l(v_j)$ \ANNOTATE{Example comment}
+                \STATE $p(i) \leftarrow v_j$
+            \ENDIF
+        \ENDFOR
+        \STATE $l’(i) \leftarrow min$
     \ENDFOR
-    \STATE $\text{LogLikelihood}[t] = \text{CurrentLogLikelihood}$
-    \STATE $\hat P \gets \CALL{Normalize}{Q}$ \ANNOTATE{M-step}
-    \STATE $t \gets t + 1$
-\UNTIL{convergence}
-\RETURN $\hat P$
+    \STATE $changed \leftarrow l \not= l’$
+    \STATE $l \leftarrow l’$
+\UNTIL{$\neg changed$}
+% \RETURN optional return
 \end{algorithmic}
 \end{algorithm}
 \end{frame}
