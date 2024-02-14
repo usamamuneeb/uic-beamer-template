@@ -14,7 +14,7 @@ This template supports OpenType fonts if used with `XeLaTeX` (set as default on 
 xelatex main.tex
 ```
 
-`pdfLaTeX` can still be used, although the included fonts will not be used:
+`pdfLaTeX` can still be used, except that instead of the included fonts, it will use font packages listed in the [LaTeX Font Catalogue](https://tug.org/FontCatalogue).
 
 ```bash
 pdflatex main.tex
