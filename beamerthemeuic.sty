@@ -35,8 +35,9 @@
 
 % No navigation symbols
 \setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{page number in head/foot}[totalframenumber]%
 
-\newcommand{\@footlinepayoff}{\insertpagenumber}
+\newcommand{\@footlinepayoff}{\usebeamertemplate{page number in head/foot}}
 \setbeamertemplate{footline}{%
   \begin{beamercolorbox}[wd=\textwidth,ht=5mm,dp=3mm,rightskip=1cm]{footline}
   \usebeamerfont{footline}\hfill\@footlinepayoff
@@ -51,7 +52,7 @@
     \setbeamercolor{block title}{fg=white,bg=uicblue}
     \setbeamercolor{block body}{fg=white,bg=uicblue}
   }{
-    \renewcommand{\@footlinepayoff}{\insertpagenumber}
+    \renewcommand{\@footlinepayoff}{\usebeamertemplate{page number in head/foot}}
     \setbeamercolor{footline}{fg=white,bg=#1}
     \setbeamercolor{block title}{fg=white,bg=#1}
     \setbeamercolor{block body}{fg=white,bg=#1}
