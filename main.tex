@@ -220,6 +220,15 @@ Just another another layout you may want to use.
 \end{chapter}
 
 
+\begin{frame}[fragile]{If you need more space in slides}
+If you would like more space, you can control the font size by specifying an option in the \verb|\documentclass| command at the beginning of this file.
+\begin{itemize}
+    \item Use \verb|\documentclass[smaller]{beamer}| to reduce font size.
+    \item For all options, refer to Section 18.2.1 of the \hrefcol{https://www.ctan.org/tex-archive/macros/latex/contrib/beamer/doc/beameruserguide.pdf}{Beamer user manual}.
+\end{itemize}
+\end{frame}
+
+
 \begin{frame}[fragile]{Let's talk themes}
 Three fundamental features greatly affect the look and feel of your slides. Two of them can be controlled with the \verb|\themecolor| command.
 \begin{itemize}
@@ -263,23 +272,17 @@ Three fundamental features greatly affect the look and feel of your slides. Two 
 
 \begin{frame}[fragile]{Fonts}
 \begin{itemize}
-\item Fonts play a huge role in the look and feel of your presentation
-  \begin{itemize}
-  \item Their main purpose however, is clarity!
-  \end{itemize}
-\item \textrm{Serif} vs \textsf{Sans-Serif} fonts
-  \begin{itemize}
-  \item \hrefcol{https://www.adobe.com/creativecloud/design/discover/serif-vs-sans-serif.html}{This} is a good read on when to use which.
-  \item \textbf{Open Sans} and \textbf{IBM Plex Serif} have been provided with this template.
-  \item To conveniently switch from Open Sans to IBM Plex Serif, please use \verb|\usefonttheme{serif}| in the preamble.
+\item Fonts are categorized as \textrm{Serif} and \textsf{Sans-Serif} (\hrefcol{https://www.adobe.com/creativecloud/design/discover/serif-vs-sans-serif.html}{this} is a good read on when to use which).
     \begin{itemize}
-    \item IBM Plex Serif is not available on pdfLaTeX, so Caladea will be used instead.
+    \item While it's possible to use different fonts for different elements, it is usually sufficient to specify your desired \textrm{Serif} and \textsf{Sans-Serif} font to LaTeX (and then use either the \textrm{Serif} or the \textsf{Sans-Serif} mode for the whole document).
+    \item Beamer uses \textsf{Sans-Serif} mode by default.
+    \item \textrm{You can still typeset in Serif font in Sans-Serif mode (and vice versa).}
     \end{itemize}
-  \end{itemize}
-\item The fonts provided in the \verb|fonts| folder (or your own fonts) can only be used with XeLaTeX.
+\item \textbf{\textsf{Open Sans}} and \textbf{\textrm{IBM Plex Serif}} have been provided with this template.
     \begin{itemize}
-    \item The Overleaf version of this template uses XeLaTeX by default.
-    \item Next few slides talk about font formats and how they work with different compilers.
+    \item To conveniently switch from Open Sans to IBM Plex Serif, please change \verb|\usefonttheme[onlymath]{serif}| to \verb|\usefonttheme{serif}| in the preamble.
+    \item IBM Plex Serif is not available on pdfLaTeX, so Caladea will be used instead.
+    \item For more options with fonts, you need to modify the self explanatory \verb|uicfont.sty| file. Next few slides will be helpful in this regard.
     \end{itemize}
 \end{itemize}
 \end{frame}
