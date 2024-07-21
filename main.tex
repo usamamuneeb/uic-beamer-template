@@ -56,7 +56,7 @@ If you would like \LaTeX in your presentation, Beamer is a great way to go!
 \end{frame}
 
 
-\begin{chapter}[images/uic_halls.jpg]{uicblue}{Slide Layouts}
+\begin{chapter}[images/uic_seo.jpg]{uicblue}{Slide Layouts}
 \textit{An overview of some different slide types you can have.}
 \end{chapter}
 
@@ -271,20 +271,20 @@ Three fundamental features greatly affect the look and feel of your slides. Two 
 
 
 \begin{frame}[fragile]{Fonts}
+Fonts are categorized as \textrm{Serif} and \textsf{Sans-Serif} (see \hrefcol{https://www.adobe.com/creativecloud/design/discover/serif-vs-sans-serif.html}{this link} for when to use which).
+
 \begin{itemize}
-\item Fonts are categorized as \textrm{Serif} and \textsf{Sans-Serif} (\hrefcol{https://www.adobe.com/creativecloud/design/discover/serif-vs-sans-serif.html}{this} is a good read on when to use which).
-    \begin{itemize}
-    \item While it's possible to use different fonts for different elements, it is usually sufficient to specify your desired \textrm{Serif} and \textsf{Sans-Serif} font to LaTeX (and then use either the \textrm{Serif} or the \textsf{Sans-Serif} mode for the whole document).
+    \item \textbf{\textsf{Open Sans}} and \textbf{\textrm{IBM Plex Serif}} have been provided with this template.
     \item Beamer uses \textsf{Sans-Serif} mode by default.
-    \item \textrm{You can still typeset in Serif font in Sans-Serif mode (and vice versa).}
-    \end{itemize}
-\item \textbf{\textsf{Open Sans}} and \textbf{\textrm{IBM Plex Serif}} have been provided with this template.
     \begin{itemize}
-    \item To conveniently switch from Open Sans to IBM Plex Serif, please change \verb|\usefonttheme[onlymath]{serif}| to \verb|\usefonttheme{serif}| in the preamble.
-    \item IBM Plex Serif is not available on pdfLaTeX, so Caladea will be used instead.
-    \item For more options with fonts, you need to modify the self explanatory \verb|uicfont.sty| file. Next few slides will be helpful in this regard.
+        \item To switch to Serif mode, please change \verb|\usefonttheme[onlymath]{serif}| to \verb|\usefonttheme{serif}| in the preamble.
+    \end{itemize}
+    \item If you want to mix and match Serif and Sans-Serif
+    \begin{itemize}
+        \item You can still typeset in Serif font in Sans-Serif mode (and vice versa) using \verb|\textrm| and \verb|\textsf| commands.
     \end{itemize}
 \end{itemize}
+For more options with fonts, you need to modify the self explanatory \verb|uicfont.sty| file. Next few slides will be helpful in this regard.
 \end{frame}
 
 
@@ -369,7 +369,7 @@ UIC signature font is Theinhardt, also available as \emph{OpenType}.
 \end{frame}
 
 
-\begin{chapter}[images/uic_halls.jpg]{uicblue}{Title goes here}
+\begin{chapter}[images/uic_seo.jpg]{uicblue}{Title goes here}
 \textit{Subtitle goes here}
 \end{chapter}
 
@@ -379,7 +379,7 @@ UIC signature font is Theinhardt, also available as \emph{OpenType}.
 \textit{Subtitle goes here}
 \end{chapter}
 
-\begin{chapter}[images/dept_cs.png]{uicblue}{Title goes here}
+\begin{chapter}[images/dept_cs_white.png]{uicblue}{Title goes here}
 \textit{Subtitle goes here}
 \end{chapter}
 
@@ -393,7 +393,7 @@ UIC signature font is Theinhardt, also available as \emph{OpenType}.
 \item You can use the generic \verb|uic_lockup.png| background, or
 \item Download your logo from \hrefcol{https://marketing.uic.edu/marketing-toolbox/university-style-guide/university-marks-logos/}{here}.
     \begin{itemize}
-    \item What you need is ``departmental lockup in SVG format and inverted RGB color".
+    \item What you need is ``departmental lockup in SVG format and RGB/inverted RGB color".
     \end{itemize}
 \item Overlay it on a static background (LaTeX cannot natively handle SVG images)
     \begin{itemize}
