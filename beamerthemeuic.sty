@@ -182,6 +182,11 @@
 \newcommand{\SplitBackground}[1]{%
 	\booltrue{splittitle}%
 	\renewcommand{\@TitleBackground}{#1}%
+
+	% a white titlebox is needed on a full background, but looks bad on
+	% a split background (and is not needed when left half is already white)
+	% we therefore set titlebox background to transparent for split backgrounds
+	\setbeamercolor{title}{bg=}
 }
 
 \renewcommand{\maketitle}{
