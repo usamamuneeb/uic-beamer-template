@@ -211,16 +211,21 @@
   \begingroup
   \themecolor{blue}
   \setbeamertemplate{footline}{}
-  \ifstrequal{#2}{sinteflightgreen}{ % Use blue text on light green, else white
+  \ifstrequal{#2}{white}{ % Use blue text on white background
     \setbeamercolor{frametitle}{fg=uicblue}
     \setbeamercolor{normal text}{fg=uicblue,bg=#2}
-  }{
+  }{}
+  \ifstrequal{#2}{expowhite}{ % Also use blue text on expowhite background
+    \setbeamercolor{frametitle}{fg=uicblue}
+    \setbeamercolor{normal text}{fg=uicblue,bg=#2}
+  }{ % otherwise use white text
     \setbeamercolor{frametitle}{fg=white}
     \setbeamercolor{normal text}{fg=white,bg=#2}
   }
   \ifstrempty{#1}{}{\setbeamertemplate{background}{\TikzSplitSlide{#1}}}
   \setbeamertemplate{frametitle}{%
     \vspace*{8ex}
+    \hspace*{0.0125\textwidth}% alignment with a with a circular logo is tricky
     \begin{beamercolorbox}[wd=0.45\textwidth]{frametitle}
       \usebeamerfont{frametitle}\insertframetitle\\
       \usebeamerfont{framesubtitle}\insertframesubtitle
