@@ -100,7 +100,7 @@ manual} demonstrate many more features, like alerts and repeats.
     \begin{itemize}
     \item Previous one did not, but \alert<3->{this one} will.
     \end{itemize}
-\item This is accomplished by the \alert<4>{hyphen} (i.e. \verb|-|) in the \verb|\alert<3->| command.
+\item This is accomplished by the \alert<4>{hyphen} (i.e. \texttt{-}) in the \verb|\alert<3->| command.
 \end{itemize}
 \end{frame}
 
@@ -121,7 +121,7 @@ manual} demonstrate many more features, like alerts and repeats.
 \end{frame}
 
 
-\begin{frame}[fragile]{Blocks}
+\begin{frame}{Blocks}
 Some content will just look better in blocks.
 \begin{columns}
 \begin{column}{0.4\textwidth}
@@ -154,7 +154,7 @@ Here's an example usage:
 \end{frame}
 
 
-\begin{frame}[fragile]{Blocks for theorems}
+\begin{frame}{Blocks for theorems}
 Beamer also uses blocks by default to wrap theorems.
 \begin{theorem} This is a theorem. \end{theorem}
 \end{frame}
@@ -177,7 +177,7 @@ This Beamer theme also provides a \texttt{sidepic} environment which is a wrappe
 
 \footlinecolor{}
 
-\begin{frame}[fragile]{Pseudocode Example}
+\begin{frame}{Pseudocode Example}
 \begin{algorithm}[H]
 \fontsize{8}{1}\selectfont
 \caption{Bellman-Kalaba (adapted from \hrefcol{https://www.ctan.org/tex-archive/macros/latex/contrib/algorithmicx/algorithmicx.pdf}{algorithmicx documentation}).}
@@ -319,7 +319,7 @@ For more options with fonts, you need to modify the self explanatory \verb|uicfo
 \end{frame}
 
 
-\begin{frame}[fragile]{Font formats over time}
+\begin{frame}{Font formats over time}
 Here are the \textbf{old} formats (still used in the LaTeX ecosystem):
 
 \begin{itemize}
@@ -327,14 +327,14 @@ Here are the \textbf{old} formats (still used in the LaTeX ecosystem):
 \begin{itemize}
     \item Authoring support \hrefcol{https://helpx.adobe.com/fonts/kb/postscript-type-1-fonts-end-of-support.html}{officially ended by Adobe in January 2023}
 \end{itemize}
-\item \emph{TrueType format} (\verb|.ttf|) developed by Apple, also in 1980s, licensed to Microsoft
+\item \emph{TrueType format} (\texttt{.ttf}) developed by Apple, also in 1980s, licensed to Microsoft
 \end{itemize}
 
 The \textbf{new} font formats are \emph{OpenType}, developed jointly by Microsoft and Adobe in the 1990s as an extension of Apple's TrueType font format. \emph{OpenType} fonts are either
 
 \begin{itemize}
-\item \emph{PostScript flavor OpenType} (\verb|.otf|) that supercedes Adobe's PostScript Type 1
-\item \emph{TrueType flavor OpenType} (also \verb|.ttf|!) that supercedes Apple's TrueType
+\item \emph{PostScript flavor OpenType} (\texttt{.otf}) that supercedes Adobe's PostScript Type 1
+\item \emph{TrueType flavor OpenType} (also \texttt{.ttf}!) that supercedes Apple's TrueType
     \begin{itemize}
     \item Distinguishing them from the old TrueType format is non trivial, since they have the same file extension.
     \end{itemize}
@@ -342,7 +342,7 @@ The \textbf{new} font formats are \emph{OpenType}, developed jointly by Microsof
 \end{frame}
 
 
-\begin{frame}[fragile]{Font formats compatibility}
+\begin{frame}{Font formats compatibility}
 The new \emph{OpenType} fonts have several new features over the old formats. They are however, supported natively only by XeLaTeX and LuaLaTeX compilers. The most popular pdfLaTeX compiler has limited support for them:
 \begin{itemize}
 \item \emph{OpenType} fonts are not pdfLaTeX-ready by default.
@@ -353,11 +353,11 @@ Consequently, if using pdfLaTeX, the most convenient option is to restrict yours
 \end{frame}
 
 
-\begin{frame}[fragile]{Font formats compatibility}
+\begin{frame}{Font formats compatibility}
 If you want to use fonts beyond those in the \hrefcol{https://tug.org/FontCatalogue/}{LaTeX Font Catalog} (for example, fonts from Google Fonts), the recommended approach is to use XeLaTeX.
 \begin{itemize}
 \item XeLaTeX is set as the default compiler on the Overleaf version of this template.
-\item The fonts included in the \verb|fonts| folder are \emph{TrueType flavor OpenType} fonts.
+\item The fonts included in the \texttt{fonts} folder are \emph{TrueType flavor OpenType} fonts.
 \item If pdfLaTeX is used, font packages from your TeX distribution will be used instead.
 \end{itemize}
 UIC signature font is \textbf{Theinhardt}, which is a proprietary font.
@@ -374,7 +374,7 @@ UIC signature font is \textbf{Theinhardt}, which is a proprietary font.
 \begin{frame}[fragile]{Chapter slides}
 \begin{itemize}
 \item Allow you to partition your presentation into multiple chapters
-\item Also \verb|frame|s, but with a few more options
+\item Also \texttt{frame}s, but with a few more options
 \item Created with \verb|\begin{chapter}[<image>]{<color>}{<title>}|
   \begin{itemize}
   \item Image is optional, color and title are mandatory.
@@ -410,24 +410,24 @@ UIC signature font is \textbf{Theinhardt}, which is a proprietary font.
 
 \begin{frame}[fragile]{Other departments}
 \begin{itemize}
-\item You can use the generic \verb|uic_lockup.png| background, or
+\item You can use the generic \texttt{uic\_lockup.png} background, or
 \item Download your logo from \hrefcol{https://marketing.uic.edu/marketing-toolbox/university-style-guide/university-marks-logos/}{here}.
     \begin{itemize}
     \item What you need is ``departmental lockup in SVG format and RGB/inverted RGB color".
     \end{itemize}
 \item Overlay it on a static background (LaTeX cannot natively handle SVG images)
     \begin{itemize}
-    \item Use the \verb|overlay_svg.py| Python script provided in the GitHub repository of this template (link on next slide)
+    \item Use the \texttt{overlay\_svg.py} Python script provided in the GitHub repository of this template (link on next slide)
     \end{itemize}
 \end{itemize}
 \end{frame}
 
 
-\begin{frame}[fragile]{Good luck with your presentation!}
+\begin{frame}{Good luck with your presentation!}
 \begin{itemize}
 \item This template is hosted on GitHub
     \begin{itemize}
-    \item  \verb|https://github.com/usamamuneeb/uic-beamer-template|
+    \item  \texttt{https://github.com/usamamuneeb/uic-beamer-template}
     \end{itemize}
 \item  I would appreciate contributions of all sorts (pull requests, identifying issues, etc).
 \item  If you have any suggestions,
