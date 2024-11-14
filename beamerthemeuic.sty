@@ -132,9 +132,11 @@
 % Put the logo in each slide's top left area
 \setbeamertemplate{headline}{\vspace{0.03\textwidth}\hspace{0.06\textwidth}\pgfuseimage{\@UIClogo}}
 
+\newcommand{\titlemanualoffset}{0ex}
 % Define frame title and subtitle layout
 \setbeamertemplate{frametitle}{%
   \vspace*{-3.5ex}
+  \vspace*{\titlemanualoffset}
   \begin{beamercolorbox}[leftskip=2cm]{frametitle}%
     \usebeamerfont{frametitle}\insertframetitle\\
     % Setting an invisible placeholder subtitle will fix the title in a constant position
