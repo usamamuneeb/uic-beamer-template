@@ -37,18 +37,18 @@
 \maketitle
 \themecolor{light} % reverts to a logo based theme (if you disabled it for title page)
 
-% default is no footline, but page numbers are incredibly useful for the audience to ask questions later
+% enabled after title page creation (i.e. after \maketitle)
 \footlinecolor{uicblue}
 
 
 \begin{frame}{Beamer for UIC presentations}
-If you would like \LaTeX in your presentation, Beamer is a great way to go!
+If you would like \LaTeX\ in your presentation, Beamer is a great way to go!
 \begin{itemize}
 \item Beamer has a detailed
 \hrefcol{https://www.ctan.org/tex-archive/macros/latex/contrib/beamer/doc/beameruserguide.pdf}{user
  manual}, but we will go over the most common features.
 \item The most common of all slide types involve bulleted points, like these.
-\item Regular \LaTeX commands will help you type math, as below.
+\item Regular \TeX\ commands will help you type math, as below.
 \begin{equation*}
 \mathrm{i}\,\hslash\frac{\partial}{\partial t} \Psi(\mathbf{r},t) = -\frac{\hslash^2}{2\,m}\nabla^2\Psi(\mathbf{r},t) + V(\mathbf{r})\Psi(\mathbf{r},t)
 \end{equation*}
@@ -57,7 +57,7 @@ If you would like \LaTeX in your presentation, Beamer is a great way to go!
 
 
 \begin{chapter}[images/uic_seo.jpg]{uicblue}{Slide Layouts}
-\textit{An overview of some different slide types you can have.}
+\textit{Some standard slide layouts}
 \end{chapter}
 
 
@@ -78,14 +78,11 @@ manual} demonstrate many more features, like alerts and repeats.
 \begin{itemize}
 \item The \verb|\alert{}| feature can be particularly useful.
 \item Like \alert<2>{this}.
-\item You may as well choose the highlighting to stick.
+\item The highlighting may span multiple slides in a frame.
     \begin{itemize}
     \item Previous one did not, but \alert<3->{this one} will.
     \end{itemize}
-\item Another common slide type involves columns and/or images.
-    \begin{itemize}
-    \item We show them in the \alert<4>{next slides}.
-    \end{itemize}
+\item This is accomplished by the \alert<4>{hyphen} (i.e. \verb|-|) in the \verb|\alert<3->| command.
 \end{itemize}
 \end{frame}
 
@@ -165,10 +162,9 @@ Beamer also uses blocks by default to wrap theorems.
 
 
 \begin{sidepic}{images/uic_quad.pdf}{Side-Picture Slides}
-Just another another layout you may want to use.
+This Beamer theme also provides a \texttt{sidepic} environment which is a wrapper on top of the \texttt{frame} environment.
 \begin{itemize}
-\item These type of slides are created using \texttt{$\backslash$begin\{sidepic\}\{<image>\}\{<title>\}}
-\item Otherwise, \texttt{sidepic} works just like \texttt{frame}
+\item It has an optional \texttt{image} argument which will help you achieve a layout of this type.
 \end{itemize}
 \end{sidepic}
 
@@ -215,9 +211,11 @@ Just another another layout you may want to use.
 
 \footlinecolor{uicblue}
 
-\begin{chapter}[images/uic_seo.jpg]{uicblue}{Personalization}
-\textit{Themes, fonts and colors}
+\themecolor{lightnologo} % since we are using a logo based background, disable the (duplicate) logo in top left
+\begin{chapter}[images/uic_lockup_white.png]{uicblue}{Personalization}
+\textit{Fonts and color schemes}
 \end{chapter}
+\themecolor{light} % restore the logo in top left
 
 
 \begin{frame}[fragile]{If you need more space in slides}
@@ -229,7 +227,7 @@ If you would like more space, you can control the font size by specifying an opt
 \end{frame}
 
 
-\begin{frame}[fragile]{Let's talk themes}
+\begin{frame}[fragile]{Color schemes}
 Three fundamental features greatly affect the look and feel of your slides. Two of them can be controlled with the \verb|\themecolor| command.
 \begin{itemize}
 \item The background color.
@@ -251,7 +249,7 @@ Three fundamental features greatly affect the look and feel of your slides. Two 
 
 \themecolor{dark}
 \footlinecolor{uicred}
-\begin{frame}[fragile]{Let's talk themes}
+\begin{frame}[fragile]{Color schemes}
 \begin{itemize}
 \item I just called \verb|\themecolor{dark}| before \verb|\begin{frame}| for this slide.
 \begin{itemize}
@@ -292,9 +290,9 @@ For more options with fonts, you need to modify the self explanatory \verb|uicfo
 Here are the \textbf{old} formats (still used in the LaTeX ecosystem):
 
 \begin{itemize}
-\item \emph{PostScript Type 1} format developed by Adobe in 1980s
+\item \emph{PostScript Type 1} format developed by Adobe in the 1980s
 \begin{itemize}
-    \item Support officially ended by Adobe in January 2023
+    \item Authoring support \hrefcol{https://helpx.adobe.com/fonts/kb/postscript-type-1-fonts-end-of-support.html}{officially ended by Adobe in January 2023}
 \end{itemize}
 \item \emph{TrueType format} (\verb|.ttf|) developed by Apple, also in 1980s, licensed to Microsoft
 \end{itemize}
@@ -318,21 +316,24 @@ The new \emph{OpenType} fonts have several new features over the old formats. Th
 \item They require the production of TeX font metrics and other ancillary files in order to be used with LaTeX.
 \item The production of these files is not easy for the average user.
 \end{itemize}
-Consequently, if using pdfLaTeX, the most convenient option is to restrict yourself to the fonts packages available at the \hrefcol{https://tug.org/FontCatalogue/}{LaTeX Font Catalogue}, which are already pdfLaTeX-ready.
+Consequently, if using pdfLaTeX, the most convenient option is to restrict yourself to the fonts packages available at the \hrefcol{https://tug.org/FontCatalogue/}{LaTeX Font Catalog}, which are already pdfLaTeX-ready.
 \end{frame}
 
 
 \begin{frame}[fragile]{Font formats compatibility}
-If you want to use fonts beyond those in the \hrefcol{https://tug.org/FontCatalogue/}{LaTeX Font Catalogue} (for example, fonts from Google Fonts), the recommended approach is to use XeLaTeX.
+If you want to use fonts beyond those in the \hrefcol{https://tug.org/FontCatalogue/}{LaTeX Font Catalog} (for example, fonts from Google Fonts), the recommended approach is to use XeLaTeX.
 \begin{itemize}
 \item XeLaTeX is set as the default compiler on the Overleaf version of this template.
 \item The fonts included in the \verb|fonts| folder are \emph{TrueType flavor OpenType} fonts.
-\item You can still use pdfLaTeX, except that the included fonts will not be applied.
+\item If pdfLaTeX is used, font packages from your TeX distribution will be used instead.
 \end{itemize}
-UIC signature font is Theinhardt, also available as \emph{OpenType}.
+UIC signature font is \textbf{Theinhardt}, which is a proprietary font.
 \begin{itemize}
-\item Due to licensing issues, I cannot distribute Theinhardt with this template.
-\item A licensed copy of Theinhardt can be obtained by UIC students and faculty \hrefcol{https://marketing.uic.edu/marketing-toolbox/uic-fonts/}{here}.
+\item UIC \hrefcol{https://marketing.uic.edu/marketing-toolbox/uic-fonts/}{provides Theinhardt}, but proprietary fonts are \hrefcol{https://studentservices.stanford.edu/my-academics/earn-my-degree/graduate-degree-progress/dissertations-and-theses/prepare-your-work-0\#fontsize}{sometimes advised against}.
+\begin{itemize}
+    \item Not all proprietary fonts permit PDF embedding, or permit only under certain conditions. Read the license terms before using one.
+    \item This template uses \textbf{Open Sans} which has wider spacing and offers more clarity in a scientific setting than Theinhardt. Additionally, it's OFL licensed.
+\end{itemize}
 \end{itemize}
 \end{frame}
 
