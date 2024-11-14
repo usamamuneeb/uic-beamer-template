@@ -16,9 +16,13 @@ This template supports OpenType fonts if used with XeLaTeX (set as default on Ov
 xelatex main && bibtex main && xelatex main && xelatex main
 ```
 
-**Note**: Even if you don't have any references, you still need to run the compiler at least twice, to get the PDF page numbers right.
+**Note**: If you don't have any references, `bibtex main` will fail. You however still need to run the compiler twice, to get the PDF page numbers right.
 
-pdfLaTeX can still be used, except that instead of the included fonts, it will use font packages from your TeX distribution (exhaustive list provided in the [LaTeX Font Catalogue](https://tug.org/FontCatalog)). To build, you can do something similar to above (replacing `xelatex` with `pdflatex` or you can use `latexmk`)
+```bash
+xelatex main && xelatex main
+```
+
+pdfLaTeX can still be used, except that instead of the included fonts, it will use font packages from your TeX distribution (exhaustive list provided in the [LaTeX Font Catalog](https://tug.org/FontCatalogue)). To build, you can do something similar to above (replacing `xelatex` with `pdflatex` or you can use `latexmk`)
 
 ```bash
 latexmk -pdf main.tex
