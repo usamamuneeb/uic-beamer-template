@@ -48,11 +48,13 @@ If you would like \LaTeX\ in your presentation, Beamer is a great way to go!
 \item Beamer has a detailed
 \hrefcol{https://www.ctan.org/tex-archive/macros/latex/contrib/beamer/doc/beameruserguide.pdf}{user
  manual}, but we will go over the most common features.
+\item This template is designed for a 16:9 aspect ratio, which is the default in PowerPoint and the most common amongst projectors.
+\end{itemize}
+\begin{itemize}[<+->]
 \item The most common of all slide types involve bulleted points, like these.
 \begin{itemize}
 \item Changing \verb|\begin{itemize}| to \verb|\begin{itemize}[<+->]| will make the bullet points unroll in a sequence.
 \end{itemize}
-\item This template is designed for a 16:9 aspect ratio, which is the default in PowerPoint and the most common amongst projectors.
 \end{itemize}
 \end{frame}
 
@@ -68,8 +70,11 @@ If you would like \LaTeX\ in your presentation, Beamer is a great way to go!
 \begin{columns}
 \begin{column}{0.7\textwidth}
 \begin{itemize}
-    \item \textbf{Do keep} a good balance of text and figures.
-    \item \textbf{Do use} the \verb|\underbrace| and \verb|\overbrace| features to help explain your equations:
+    \item \textbf{Do keep} a good balance between text and figures.
+    \begin{itemize}
+        \item \textbf{Do use} nested lists wherever appropriate.
+    \end{itemize}
+    \item \textbf{Do use} the \verb|\underbrace| and \verb|\overbrace| commands to help explain your equations:
 \begin{equation*}
 \begin{aligned}
 \max_{\lambda, \nu}. \quad & \underbrace{\inf_x \overbrace{L(x, \lambda, \nu)}^\text{Lagrangian}}_\text{Lagrange Dual Function, $g(\lambda, \nu)$}\\
@@ -349,7 +354,7 @@ The new \emph{OpenType} fonts have several new features over the old formats. Th
 \item They require the production of TeX font metrics and other ancillary files in order to be used with LaTeX.
 \item The production of these files is not easy for the average user.
 \end{itemize}
-Consequently, if using pdfLaTeX, the most convenient option is to restrict yourself to the fonts packages available at the \hrefcol{https://tug.org/FontCatalogue/}{LaTeX Font Catalog}, which are already pdfLaTeX-ready.
+Consequently, if using pdfLaTeX, the most convenient option is to restrict yourself to the pdfLaTeX-ready font packages in your TeX distribution (exhaustive list provided in the \hrefcol{https://tug.org/FontCatalogue/}{LaTeX Font Catalog}).
 \end{frame}
 
 
@@ -362,9 +367,8 @@ If you want to use fonts beyond those in the \hrefcol{https://tug.org/FontCatalo
 \end{itemize}
 UIC signature font is \textbf{Theinhardt}, which is a proprietary font.
 \begin{itemize}
-\item UIC \hrefcol{https://marketing.uic.edu/marketing-toolbox/uic-fonts/}{provides Theinhardt}, but proprietary fonts are \hrefcol{https://studentservices.stanford.edu/my-academics/earn-my-degree/graduate-degree-progress/dissertations-and-theses/prepare-your-work-0\#fontsize}{sometimes advised against}.
+\item UIC \hrefcol{https://marketing.uic.edu/marketing-toolbox/uic-fonts/}{provides Theinhardt}, but proprietary fonts sometimes do not permit PDF embedding which might cause substitutions or compatibility issues.
 \begin{itemize}
-    \item Not all proprietary fonts permit PDF embedding, or permit only under certain conditions. Read the license terms before using one.
     \item This template uses \textbf{Open Sans} which has wider spacing and offers more clarity in a scientific setting than Theinhardt. Additionally, it's OFL licensed.
 \end{itemize}
 \end{itemize}
