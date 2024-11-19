@@ -1,0 +1,35 @@
+% This file may be used to overlay an EPS logo on a solid background
+% and save as a PDF for use as chapter slide backgrounds.
+% 
+% Use only with XeLaTeX (pdfLaTeX does not support EPS files)
+% 
+% (1) Specify the filename of your logo on line 29
+% (2) Select the appropriate background color on line 19/20
+
+\documentclass{beamer}
+\RequirePackage{geometry}
+\geometry{paperwidth=8in,paperheight=6in}
+\usepackage{xcolor} % For background colors
+\usepackage{graphicx} % For including images
+
+\definecolor{uicblue}{RGB/cmyk}{0,30,98/100,94,30,28} % Navy Pier Blue
+\definecolor{expowhite}{RGB/cmyk}{242,247,235/5,3,8,0} % Expo White
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamercolor{background canvas}{bg=expowhite} % use with RGB logo
+% \setbeamercolor{background canvas}{bg=uicblue} % use with inverted RGB logo
+
+\begin{document}
+\begin{columns}[t]
+\begin{column}{0.25\paperwidth}
+\end{column}
+\begin{column}{0.5\paperwidth}
+\vbox{
+    \vspace*{4in}
+    \includegraphics[width=\textwidth]{COL.ENG.ECE.LOCKC.SM.RGB.EPS}% Replace with your EPS file
+}
+\end{column}
+\begin{column}{0.25\paperwidth}
+\end{column}
+\end{columns}
+\end{document}

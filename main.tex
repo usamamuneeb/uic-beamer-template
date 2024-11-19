@@ -13,13 +13,13 @@
 \title{Get started with the UIC Beamer Theme}
 
 
-\titlebackground*{images/uic_lockup.png}
+\titlebackground*{assets/uic_lockup_blue.pdf}
 
 % NOTE 1: The asterisk splits the background image. This option is good
 % for logo-based backgrounds. If you use an image based background
 % it's recommended to not split it:
 
-% \titlebackground{images/uic_seo.jpg}
+% \titlebackground{assets/uic_seo.jpg}
 
 % NOTE 2: If you use a title background that does not have a logo, you might
 % want to enable logo in the top left.
@@ -59,7 +59,7 @@ If you would like \LaTeX\ in your presentation, Beamer is a great way to go!
 \end{frame}
 
 
-\begin{chapter}[images/uic_seo.jpg]{uicblue}{Slide Layouts}
+\begin{chapter}[assets/uic_seo.jpg]{uicblue}{Slide Layouts}
 \textit{Some standard slide layouts}
 \end{chapter}
 
@@ -165,7 +165,7 @@ Beamer also uses blocks by default to wrap theorems.
 \end{frame}
 
 
-\begin{sidepic}{images/uic_quad.pdf}{Side-Picture Slides}
+\begin{sidepic}{assets/uic_quad.pdf}{Side-Picture Slides}
 This Beamer theme also provides a \texttt{sidepic} environment which is a wrapper on top of the \texttt{frame} environment.
 \begin{itemize}
 \item It has an optional \texttt{image} argument which will help you achieve a layout of this type.
@@ -237,7 +237,7 @@ This Beamer theme also provides a \texttt{sidepic} environment which is a wrappe
 
 
 \themecolor{lightnologo} % since we are using a logo based background, disable the (duplicate) logo in top left
-\begin{chapter}[images/uic_lockup_white.png]{uicblue}{Personalization}
+\begin{chapter}[assets/uic_lockup_white.pdf]{uicblue}{Personalization}
 \textit{Fonts and color schemes}
 \end{chapter}
 \themecolor{light} % restore the logo in top left
@@ -393,21 +393,21 @@ UIC signature font is \textbf{Theinhardt}, which is a proprietary font.
 \end{frame}
 
 
-\begin{chapter}[images/uic_seo.jpg]{uicblue}{Title goes here}
+\begin{chapter}[assets/uic_seo.jpg]{uicblue}{Title goes here}
 \textit{Subtitle goes here}
 \end{chapter}
 
 \themecolor{lightnologo}
 % these backgrounds already have the UIC circular logo, so we temporarily change the theme to lightnologo
-\begin{chapter}[images/dept_ece.png]{uicblue}{Title goes here}
+\begin{chapter}[assets/ece_blue.pdf]{uicblue}{Title goes here}
 \textit{Subtitle goes here}
 \end{chapter}
 
-\begin{chapter}[images/dept_cs_white.png]{uicblue}{Title goes here}
+\begin{chapter}[assets/cs_white.pdf]{uicblue}{Title goes here}
 \textit{Subtitle goes here}
 \end{chapter}
 
-\begin{chapter}[images/dept_mscs.png]{expowhite}{Title goes here}
+\begin{chapter}[assets/mscs_blue.pdf]{expowhite}{Title goes here}
 \textit{Subtitle goes here}
 \end{chapter}
 \themecolor{light}
@@ -417,11 +417,15 @@ UIC signature font is \textbf{Theinhardt}, which is a proprietary font.
 \item You can use the generic \texttt{uic\_lockup.png} background, or
 \item Download your logo from \hrefcol{https://marketing.uic.edu/marketing-toolbox/university-style-guide/university-marks-logos/}{here}.
     \begin{itemize}
-    \item What you need is ``departmental lockup in SVG format and RGB/inverted RGB color".
+    \item What you need is ``departmental lockup in EPS format and RGB/inverted RGB color".
     \end{itemize}
-\item Overlay it on a static background (LaTeX cannot natively handle SVG images)
+\item Overlay it on a static background
     \begin{itemize}
-    \item Use the \texttt{overlay\_svg.py} Python script provided in the GitHub repository of this template (link on next slide)
+    \item Upload your EPS logo to this Overleaf and use the \texttt{overlay\_eps.tex} file to superimpose it onto a static background.
+    \begin{itemize}
+    \item Copy over the resulting PDF to the \texttt{assets} folder.
+    \end{itemize}
+    \item If EPS logo is not available, download an SVG version and use the \texttt{overlay\_svg.py} Python script provided in the GitHub repository of this template (link on next slide).
     \end{itemize}
 \end{itemize}
 \end{frame}
