@@ -132,7 +132,8 @@
 % Put the logo in each slide's top left area
 \setbeamertemplate{headline}{\vspace{0.03\textwidth}\hspace{0.06\textwidth}\pgfuseimage{\@UIClogo}}
 
-\newcommand{\titlemanualoffset}{0ex}
+\newlength{\titlemanualoffset}
+\setlength{\titlemanualoffset}{0ex}
 % Define frame title and subtitle layout
 \setbeamertemplate{frametitle}{%
   \vspace*{-3.5ex}
@@ -149,6 +150,7 @@
   \end{beamercolorbox}
 }
 
+\newlength{\titleboxwidth}
 % Define the title page
 \setbeamertemplate{title page}{%
   \vskip0pt plus 1filll%

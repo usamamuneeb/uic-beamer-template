@@ -10,8 +10,6 @@
 \usefonttheme[onlymath]{serif}
 % \usefonttheme{serif} % use this if you would like Serif font throughout (and not just for math)
 
-\title{Get started with the UIC Beamer Theme}
-
 
 \titlebackground*{assets/uic_lockup_blue.pdf}
 
@@ -26,9 +24,10 @@
 % To do that, simply comment out this line
 \themecolor{lightnologo}
 
+\title{Get started with the UIC Beamer Theme}
 \subtitle{Using \LaTeX\ to prepare slides}
 % This can be adjusted accordingly for longer titles
-\newcommand{\titleboxwidth}{0.45\textwidth}
+\setlength{\titleboxwidth}{0.45\textwidth}
 
 \author{\href{mailto:umunee2@uic.edu}{Usama Muneeb}}
 \date{\today}
@@ -215,14 +214,14 @@ This Beamer theme also provides a \texttt{sidepic} environment which is a wrappe
 
 \footlinecolor{uicblue}
 
-% \renewcommand{\titlemanualoffset}{-0.4ex}
+% \setlength{\titlemanualoffset}{-0.6ex}
 \begin{frame}[fragile]{Common issues (this is $\hat P$ laceholder math)}
 \begin{itemize}
 \item Math in title will cause its height to be inconsistent with that of other frames (try viewing these example slides in a full screen mode)
 \begin{itemize}
-\item This theme provides a \verb|\titlemanualoffset| command which can be used to manually adjust this offset.
+\item This theme provides a \verb|\titlemanualoffset| register which can be used to manually adjust this offset.
 \begin{itemize}
-\item Putting \verb|\renewcommand{\titlemanualoffset}{<some calibrated offset>}| before \verb|\begin{frame}| for this frame will fix this issue.
+\item Putting \verb|\setlength{\titlemanualoffset}{<some calibrated offset>}| before \verb|\begin{frame}| for this frame will fix this issue.
 \item \textbf{Make sure to zero it out after} \verb|\end{frame}|
 \end{itemize}
 \end{itemize}
@@ -232,7 +231,13 @@ This Beamer theme also provides a \texttt{sidepic} environment which is a wrappe
 \end{itemize}
 \end{itemize}
 \end{frame}
-\renewcommand{\titlemanualoffset}{0.0ex}
+\setlength{\titlemanualoffset}{0.0ex}
+
+
+
+\begin{frame}{Avoid duplicate logos}
+If using a logo based background, you can disable the logo in the top left by temporarily switching to a color scheme that does not use a logo. The next slide is such an example.
+\end{frame}
 
 
 
