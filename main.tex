@@ -1,6 +1,6 @@
 \documentclass{beamer}
 \usetheme{uic}
-\usepackage{amsfonts,amsmath,oldgerm,algorithmic,algorithm}
+\usepackage{amsfonts,amsmath,oldgerm,algorithm,algpseudocode}
 \usepackage[font=small,labelfont=bf]{caption} % Required for specifying captions to tables and figures
 
 \newcommand{\hrefcol}[2]{\textcolor{uihteal}{\href{#1}{#2}}}
@@ -173,10 +173,6 @@ This Beamer theme also provides a \texttt{sidepic} environment which is a wrappe
 
 \renewcommand{\algorithmicrequire}{\textbf{Input:}}
 \renewcommand{\algorithmicensure}{\textbf{Output:}}
-\newcommand*\CALL[2]{\textsc{#1}(#2)}
-% \newcommand*\ANNOTATE[1]{\hfill\{#1\}}%
-% \newcommand*\ANNOTATE[1]{\hskip3em$\rightarrow$ #1}
-\newcommand*\ANNOTATE[1]{\hfill\(\triangleright\) #1}%
 
 \footlinecolor{}
 
@@ -185,26 +181,26 @@ This Beamer theme also provides a \texttt{sidepic} environment which is a wrappe
 \fontsize{8}{1}\selectfont
 \caption{Bellman-Kalaba (adapted from \hrefcol{https://www.ctan.org/tex-archive/macros/latex/contrib/algorithmicx/algorithmicx.pdf}{algorithmicx documentation}).}
 \begin{algorithmic}
-\REQUIRE $G$, $u$, $l$, $p$
+\Require $G$, $u$, $l$, $p$
 % \ENSURE optional output
-\FORALL {$v \in V(G)$}
-    \STATE $l(v) \leftarrow \infty$
-\ENDFOR
-\STATE $l(u) \leftarrow 0$
-\REPEAT
-    \FOR {$i \leftarrow 1, n$}
-        \STATE $min \leftarrow l(v_i)$
-        \FOR {$j \leftarrow 1, n$}
-            \IF {$min > \CALL{Edge}{v_i, v_j} + l(v_j)$}
-                \STATE $min \leftarrow \CALL{Edge}{v_i, v_j} + l(v_j)$ \ANNOTATE{Example comment}
-                \STATE $p(i) \leftarrow v_j$
-            \ENDIF
-        \ENDFOR
-        \STATE $l’(i) \leftarrow min$
-    \ENDFOR
-    \STATE $changed \leftarrow l \not= l’$
-    \STATE $l \leftarrow l’$
-\UNTIL{$\neg changed$}
+\ForAll {$v \in V(G)$}
+    \State $l(v) \leftarrow \infty$
+\EndFor
+\State $l(u) \leftarrow 0$
+\Repeat
+    \For {$i \leftarrow 1, n$}
+        \State $min \leftarrow l(v_i)$
+        \For {$j \leftarrow 1, n$}
+            \If {$min > \Call{Edge}{v_i, v_j} + l(v_j)$}
+                \State $min \leftarrow \Call{Edge}{v_i, v_j} + l(v_j)$ \Comment{Example comment}
+                \State $p(i) \leftarrow v_j$
+            \EndIf
+        \EndFor
+        \State $l’(i) \leftarrow min$
+    \EndFor
+    \State $changed \leftarrow l \not= l’$
+    \State $l \leftarrow l’$
+\Until{$\neg changed$}
 % \RETURN optional return
 \end{algorithmic}
 \end{algorithm}
@@ -212,6 +208,47 @@ This Beamer theme also provides a \texttt{sidepic} environment which is a wrappe
 
 
 \footlinecolor{uicblue}
+
+\begin{frame}[fragile]{Typesetting Algorithms}
+\framesubtitle{Common Issues}
+\begin{itemize}
+    \item There are \hrefcol{https://tex.stackexchange.com/questions/229355}{multiple environments} for typesetting algorithms.
+    \begin{itemize}
+        \item This template uses \texttt{algorithmicx} via \texttt{algpseudocode}.
+        \begin{itemize}
+            \item \texttt{algpseudocode} is (one of the) layouts for \texttt{algorithmicx}.
+            \item Others exist, as mentioned in the \hrefcol{https://www.ctan.org/tex-archive/macros/latex/contrib/algorithmicx/algorithmicx.pdf}{documentation, section 2.1}.
+        \end{itemize}
+        \item \texttt{algorithmic} is also widely used, which is an alternative to using \texttt{algorithmicx} (via a layout package).
+    \end{itemize}
+    \item While \texttt{algpseudocode} tries to be close to \texttt{algorithmic}, they use different capitalization schemes
+    \begin{itemize}
+        \item \texttt{algorithmic} commands are fully capitalized (e.g. \verb|\STATE|, \verb|\FORALL|)
+        \item \texttt{algpseudocode} commands are not (e.g. \verb|\State|, \verb|\ForAll|).
+        \item \textbf{If moving an algorithm from one to the other, you will need to fix the capitalization, or the compiler will run into problems.}
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Typesetting Algorithms}
+\framesubtitle{More control}
+\begin{itemize}
+    \item If you must use \texttt{algorithmic} instead of \texttt{algpseudocode}, some commands will need to be manually defined
+    \begin{itemize}
+        \item For example the function \verb|\Call| (or rather, the \verb|\CALL|) command.
+        \begin{itemize}
+            \item Do it as \verb|\newcommand*\CALL[2]{\textsc{#1}(#2)}|
+            \item Remember that not all fonts have a small caps variant needed by \verb|\textsc|
+            \item You can look at \texttt{uicfont.sty} to see how we augment our font with another small caps font (i.e. \textbf{PlayFair Display SC})
+        \end{itemize}
+        \item Additionally, the \verb|\Comment| of \texttt{algpseudocode} might look better than the \verb|\COMMENT| of \texttt{algorithmic}
+        \begin{itemize}
+            \item You can define a custom one to mimic \verb|\Comment|
+            \item Do it as \verb|\newcommand*\ANNOTATE[1]{\hfill\(\triangleright\) #1}|
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+\end{frame}
 
 % \setlength{\titlemanualoffset}{-0.6ex}
 \begin{frame}[fragile]{Common issues (this is $\hat P$ laceholder math)}
