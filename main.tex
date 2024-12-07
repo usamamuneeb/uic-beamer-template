@@ -48,11 +48,10 @@ If you would like \LaTeX\ in your presentation, Beamer is a great way to go!
 \hrefcol{https://www.ctan.org/tex-archive/macros/latex/contrib/beamer/doc/beameruserguide.pdf}{user
  manual}, but we will go over the most common features.
 \item This template is designed for a 16:9 aspect ratio, which is the default in PowerPoint and the most common amongst projectors.
-\end{itemize}
-\begin{itemize}[<+->]
-\item The most common of all slide types involve bulleted points, like these.
+\item The most common of all slide types involve bulleted points, like these. \pause
 \begin{itemize}
-\item Changing \verb|\begin{itemize}| to \verb|\begin{itemize}[<+->]| will make the bullet points unroll in a sequence.
+\item Placing \verb|\pause| after items will allow you to sequentially unroll points.
+\item Changing \verb|\begin{itemize}| to \verb|\begin{itemize}[<+->]| achieves a similar effect, although \verb|\pause| gives finer control on the unrolling.
 \end{itemize}
 \end{itemize}
 \end{frame}
