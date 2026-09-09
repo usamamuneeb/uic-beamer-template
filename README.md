@@ -10,19 +10,15 @@ You can [use this template directly on Overleaf](https://www.overleaf.com/latex/
 
 ### Support for OpenType fonts
 
-This template supports OpenType fonts if used with XeLaTeX (set as default on Overleaf template). If you have references, your compile command should look like this:
+This template supports OpenType fonts if used with XeLaTeX (set as default on Overleaf template). You should never call the compiler directly. Always call it via `latexmk`.
 
 ```bash
-xelatex main && bibtex main && xelatex main && xelatex main
+latexmk -pdf -pdflatex='xelatex' main.tex
 ```
 
-**Note**: If you don't have any references, `bibtex main` will fail. You however still need to run the compiler twice, to get the PDF page numbers right.
+> **Note**: We typically use the above command, because by default, using `latexmk` via the `-xetex` option invokes `xelatex` with the `-no-pdf` flag. This causes it to generate an intermediate DVI file, which is later converted to PDF using the `xdvipdfmx` tool. 
 
-```bash
-xelatex main && xelatex main
-```
-
-pdfLaTeX can still be used, except that instead of the included fonts, it will use font packages from your TeX distribution (exhaustive list provided in the [LaTeX Font Catalog](https://tug.org/FontCatalogue)). To build, you can do something similar to above (replacing `xelatex` with `pdflatex` or you can use `latexmk`)
+pdfLaTeX can still be used, except that instead of the included fonts, it will use font packages from your TeX distribution (exhaustive list provided in the [LaTeX Font Catalog](https://tug.org/FontCatalogue)).
 
 ```bash
 latexmk -pdf main.tex
